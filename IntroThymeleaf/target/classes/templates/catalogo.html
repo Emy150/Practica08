@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de juegos</title>
+</head>
+<body>
+    <h1> Catálogo de videojuegos </h1>
+
+    <table>
+        <thead>
+            <tr> Titulo del Videojuego </tr>
+            <tr> Género </tr>
+            <tr> PLataforma </tr>
+            <tr> Precio </tr>
+            <tr> Disponibilidad </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="juego: ${juegos}">
+                <td th:text="${juego.titulo}"></td>
+                <td th:text="${juego.genero}"></td>
+                <td th:text="${juego.plataforma}"></td>
+                <td th:text="${juego.precio}"></td>
+
+                <td>
+                    <span th:if="${juego.disponible}"> En stock </span>
+                    <span th:unless="${juego.disponible}"> Agotado </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
